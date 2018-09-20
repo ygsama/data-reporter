@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	
+	<!-- data source -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">		
+		<property name="driverClassName" value="${dbDriver}" />
+		<property name="url" value="${dbUrl}" />
+		<property name="username" value="${dbUser}" />
+		<property name="password" value="${dbPwd}" />
+		<property name="initialSize" value="1" />
+		<property name="minIdle" value="1" />
+		<property name="maxActive" value="${maxActive}" />
+		<property name="maxWait" value="60000" />
+    	<property name="validationQuery" value="${dbTestSql}" />
+    	<property name="testOnBorrow" value="false" />
+    	<property name="testOnReturn" value="false" /> 
+    	<property name="testWhileIdle" value="true" />  
+    	<property name="timeBetweenEvictionRunsMillis" value="30000" />
+    	<property name="numTestsPerEvictionRun" value="${maxActive}" />
+    	<property name="poolPreparedStatements" value="${poolPreparedStatements}" />
+    	<property name="maxOpenPreparedStatements" value="${maxOpenPreparedStatements}" />
+    	<property name="removeAbandoned" value="true" />  
+		<property name="removeAbandonedTimeout" value="180" />  
+		<property name="logAbandoned" value="true" />
+	</bean>
+	
+	<bean id="transactionManager" 
+    	 class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      	<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	    <property name="dataSource" ref="dataSource" />
+	    <!--
+	    <property name="plugins">
+	        <bean class="com.zjft.bdp.common.PageInterceptor">
+	        </bean>
+	    </property>
+	    -->
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.zjft.bdp.persistence" />
+	</bean>
+	
+	
+</beans>
