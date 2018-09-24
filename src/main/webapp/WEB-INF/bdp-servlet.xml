@@ -49,7 +49,7 @@
 		<mvc:interceptor>
 			<!-- 默认所有的请求都进行拦截 -->
 			<mvc:mapping path="/**"/>
-			<bean class="com.zjft.bdp.aop.AuthInterceptor"></bean>
+			<bean class="com.zjft.bdp.Interceptor.AuthInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 	

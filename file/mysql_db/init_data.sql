@@ -8,7 +8,7 @@ commit;
 
 INSERT INTO `groups` VALUES ('0507ea07e59e43249493933935ca078a', '公开空间', '', '{}');
 INSERT INTO `groups` VALUES ('efdb5419d5ff413d80cf2ef8be9bc5d5', '测试空间', '', '{}');
-INSERT INTO `groups` VALUES ('649adabd7489456193ca3ce8ade3d538', '其他空间', '', '{}');
+INSERT INTO `groups` VALUES ('649adabd7489456193ca3ce8ade3d538', '普通空间', '', '{}');
 commit;
 
 INSERT INTO `company` VALUES ('28965e34f0aa4bd6a65c360a0fd2f571', '紫津融畅', '', '', 'T', '南京', '中国江苏南京', '123123','2g@zjft.com','','{}');

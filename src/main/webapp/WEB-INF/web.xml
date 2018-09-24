@@ -33,7 +33,7 @@
     </listener>
 
     <listener>
-        <listener-class>com.zjft.bdp.common.UserCounterListener</listener-class>
+        <listener-class>com.zjft.bdp.listener.UserCounterListener</listener-class>
     </listener>
     
     <listener>

@@ -1,4 +1,4 @@
-package com.zjft.bdp.web.system;
+package com.zjft.bdp.web.system.square.space;
 
 import java.util.HashMap;
 import java.util.List;

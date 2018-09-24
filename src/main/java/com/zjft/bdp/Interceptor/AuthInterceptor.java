@@ -1,4 +1,4 @@
-package com.zjft.bdp.aop;
+package com.zjft.bdp.Interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,8 +8,10 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mchange.v2.codegen.bean.SerializableExtension;
 import com.zjft.bdp.common.CalendarUtil;
 import com.zjft.bdp.common.CfgProperty;
+import com.zjft.bdp.common.TokenManager;
 
 public class AuthInterceptor implements HandlerInterceptor {
 
@@ -32,15 +34,18 @@ public class AuthInterceptor implements HandlerInterceptor {
 			return false;
 		}
 		
-		if("123".length()>1){
+		String token = request.getHeader("Token");
+		log.info("token is " + token);
+		if(token!=null && token.length()>0){
 			try {
-//				String sessionId = request.getSession().getId();
-//				sessionId跟redis比较
-				return true;
+				for(String k:TokenManager.sessionMap.keySet()){
+					if(k.split("$")[1] == token){
+						return true;
+					}
+				}
 			} catch (Exception e) {
 				log.error("请求验证Token异常:",e);
 			} finally{
-//				
 			}
 		}
 		

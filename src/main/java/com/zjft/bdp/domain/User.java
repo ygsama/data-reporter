@@ -84,17 +84,6 @@ public class User extends Status {
      */
     private Integer passwdError ;
     
-    private String usrDefView;
-    
-    private String usrDefScreenView;
-
-	public String getUsrDefScreenView() {
-		return usrDefScreenView;
-	}
-
-	public void setUsrDefScreenView(String usrDefScreenView) {
-		this.usrDefScreenView = usrDefScreenView;
-	}
 
 	public Integer getPasswdError() {
 		return passwdError;
@@ -279,11 +268,4 @@ public class User extends Status {
 		this.org = org;
 	}
 
-	public String getUsrDefView() {
-		return usrDefView;
-	}
-
-	public void setUsrDefView(String usrDefView) {
-		this.usrDefView = usrDefView;
-	}
 }
