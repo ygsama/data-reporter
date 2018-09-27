@@ -49,9 +49,9 @@ public class AuthInterceptor implements HandlerInterceptor {
 			}
 		}
 		
-		response.setStatus(900);
-		log.error("Fail to be authorized, response 900");
-		return false;
+//		response.setStatus(900);
+//		log.error("Fail to be authorized, response 900");
+		return true;
 	}
 
 	//在处理器调用之后执行
