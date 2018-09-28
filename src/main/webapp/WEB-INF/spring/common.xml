@@ -22,7 +22,7 @@
         <property name="maxUploadSize" value="10485760" />
     </bean>
 	
-	<bean class="com.zjft.bdp.common.SpringContextUtil" />
+	<bean class="ygsama.common.SpringContextUtil" />
 	
 	
 	<import resource="data.xml"/>

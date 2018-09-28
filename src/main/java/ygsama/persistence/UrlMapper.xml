@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="ygsama.persistence.UrlMapper" >
+  <resultMap id="BaseResultMap" type="ygsama.pojo.Url" >
+    <id column="url" property="url" jdbcType="VARCHAR" />
+    <result column="uid" property="uid" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="ygsama.pojo.Url" extends="BaseResultMap" >
+    <result column="ujson" property="ujson" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    url, uid
+  </sql>
+  <sql id="Blob_Column_List" >
+    ujson
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from url
+    where url = #{url,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from url
+    where url = #{url,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="ygsama.pojo.Url" >
+    insert into url (url, uid, ujson
+      )
+    values (#{url,jdbcType=VARCHAR}, #{uid,jdbcType=VARCHAR}, #{ujson,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="ygsama.pojo.Url" >
+    insert into url
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="ujson != null" >
+        ujson,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="ujson != null" >
+        #{ujson,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="ygsama.pojo.Url" >
+    update url
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="ujson != null" >
+        ujson = #{ujson,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where url = #{url,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="ygsama.pojo.Url" >
+    update url
+    set uid = #{uid,jdbcType=VARCHAR},
+      ujson = #{ujson,jdbcType=LONGVARCHAR}
+    where url = #{url,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="ygsama.pojo.Url" >
+    update url
+    set uid = #{uid,jdbcType=VARCHAR}
+    where url = #{url,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="selectByUid" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from url
+    where UID = #{uid,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectAll" resultMap="ResultMapWithBLOBs"  >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from url
+  </select>
+</mapper>

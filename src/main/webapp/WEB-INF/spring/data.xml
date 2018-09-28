@@ -36,13 +36,13 @@
 	    <property name="dataSource" ref="dataSource" />
 	    <!--
 	    <property name="plugins">
-	        <bean class="com.zjft.bdp.common.PageInterceptor">
+	        <bean class="ygsama.common.PageInterceptor">
 	        </bean>
 	    </property>
 	    -->
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.zjft.bdp.persistence" />
+		<property name="basePackage" value="ygsama.persistence" />
 	</bean>
 	
 	
