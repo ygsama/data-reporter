@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top._404top.daoo.UrlMapper">
+  <resultMap id="BaseResultMap" type="top._404top.pojoo.Url">
+    <id column="url" jdbcType="VARCHAR" property="url" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="top._404top.pojoo.Url">
+    <result column="ujson" jdbcType="LONGVARCHAR" property="ujson" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    url, uid
+  </sql>
+  <sql id="Blob_Column_List">
+    ujson
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from url
+    where url = #{url,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from url
+    where url = #{url,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="top._404top.pojoo.Url">
+    insert into url (url, uid, ujson
+      )
+    values (#{url,jdbcType=VARCHAR}, #{uid,jdbcType=VARCHAR}, #{ujson,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="top._404top.pojoo.Url">
+    insert into url
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="url != null">
+        url,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="ujson != null">
+        ujson,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="ujson != null">
+        #{ujson,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="top._404top.pojoo.Url">
+    update url
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="ujson != null">
+        ujson = #{ujson,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where url = #{url,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="top._404top.pojoo.Url">
+    update url
+    set uid = #{uid,jdbcType=VARCHAR},
+      ujson = #{ujson,jdbcType=LONGVARCHAR}
+    where url = #{url,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top._404top.pojoo.Url">
+    update url
+    set uid = #{uid,jdbcType=VARCHAR}
+    where url = #{url,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="top._404top.pojoo.Url">
+    <id column="url" jdbcType="VARCHAR" property="url" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="top._404top.pojoo.Url">
+    <result column="ujson" jdbcType="LONGVARCHAR" property="ujson" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    url, uid
+  </sql>
+  <sql id="Blob_Column_List">
+    ujson
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from url
+    where url = #{url,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from url
+    where url = #{url,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="top._404top.pojoo.Url">
+    insert into url (url, uid, ujson
+      )
+    values (#{url,jdbcType=VARCHAR}, #{uid,jdbcType=VARCHAR}, #{ujson,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="top._404top.pojoo.Url">
+    insert into url
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="url != null">
+        url,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="ujson != null">
+        ujson,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="ujson != null">
+        #{ujson,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="top._404top.pojoo.Url">
+    update url
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="ujson != null">
+        ujson = #{ujson,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where url = #{url,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="top._404top.pojoo.Url">
+    update url
+    set uid = #{uid,jdbcType=VARCHAR},
+      ujson = #{ujson,jdbcType=LONGVARCHAR}
+    where url = #{url,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top._404top.pojoo.Url">
+    update url
+    set uid = #{uid,jdbcType=VARCHAR}
+    where url = #{url,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectByUid" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from url
+    where UID = #{uid,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectAll" resultMap="ResultMapWithBLOBs"  >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from url
+  </select>
+
+
+</mapper>
